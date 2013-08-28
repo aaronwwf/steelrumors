@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     'links',
     'steelrumors',
     'registration',
+    'django.contrib.comments',
 )
 
 from django.core.urlresolvers import reverse_lazy
