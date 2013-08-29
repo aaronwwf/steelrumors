@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Count
+from django.core.urlresolvers import reverse
 
 
 class LinkVoteCountManager(models.Manager):
@@ -18,6 +19,9 @@ class Link(models.Model):
 
 	with_votes = LinkVoteCountManager()
 	objects = models.Manager() # default Manager
+
+	def get_absolute_url(self):
+		return reverse('link_detail', kwargs={'pk':str(self.id)})
 
 	def __unicode__(self):
 		return self.title
